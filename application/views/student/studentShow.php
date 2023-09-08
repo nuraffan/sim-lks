@@ -67,7 +67,7 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                                                     ?>" alt="User Image">
                                                     <?php } ?>
                                                 </div>
-                                                <div class="student-tittle"><?php echo $this->customlib->getFullName($stvalue['firstname'], $stvalue['middlename'], $stvalue['lastname'], $sch_setting->middlename, $sch_setting->lastname); ?></div>
+                                                <div class="student-tittle"><?php echo $student['firstname']; ?></div>
                                             </a>
                                         </div>
                                 <?php
@@ -118,7 +118,7 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                                                                             }
                                                                                             ?>" alt="User profile picture">
                         <?php } ?>
-                        <h3 class="profile-username text-center"><?php echo $this->customlib->getFullName($student['firstname'], $student['middlename'], $student['lastname'], $sch_setting->middlename, $sch_setting->lastname); ?></h3>
+                        <h3 class="profile-username text-center"><?php echo $student['firstname']; ?></h3>
 
                         <ul class="list-group list-group-unbordered">
                             <?php
@@ -268,7 +268,7 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                 </li>
 
                                 <li class="pull-right">
-                                    <a style="cursor: pointer;" onclick="disable_student('<?php echo $student["id"] ?>')" class="text-red" data-toggle="tooltip" data-placement="bottom" title="<?php echo $this->lang->line("disable"); ?>">
+                                    <a style="cursor: pointer;" onclick="disable_student('<?php echo $student['id'] ?>')" class="text-red" data-toggle="tooltip" data-placement="bottom" title="<?php echo $this->lang->line("disable"); ?>">
                                         <i class="fa fa-thumbs-o-down"></i><?php //echo "Disable Student";        
                                                                             ?>
                                     </a>
@@ -292,6 +292,17 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
 
                                 <li class="pull-right">
                                     <a href="<?php echo base_url() . "student/edit/" . $student["id"] ?>" class="" data-toggle="tooltip" data-placement="bottom" title="<?php echo $this->lang->line('edit'); ?>"><i class="fa fa-pencil"></i>
+                                        <?php //echo $this->lang->line('login_details');    
+                                        ?>
+                                    </a>
+                                </li>
+                            <?php
+                            }
+                            if ($this->rbac->hasPrivilege('student', 'can_print')) {
+                            ?>
+
+                                <li class="pull-right">
+                                    <a href="<?php echo base_url() . "student/print/" . $student["id"] ?>" onclick="window.open(this.href).print(); return false" class="" data-toggle="tooltip" data-placement="bottom" title="<?php echo $this->lang->line('print'); ?>"><i class="fa fa-print"></i>
                                         <?php //echo $this->lang->line('login_details');    
                                         ?>
                                     </a>
@@ -787,12 +798,12 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                                             <?php
                                                             if ($feetype_balance == 0) {
                                                             ?><span class="label label-success"><?php echo $this->lang->line('paid'); ?></span><?php
-                                                                                                                                                } else if (!empty($fee_value->amount_detail)) {
-                                                                                                                                                    ?><span class="label label-warning"><?php echo $this->lang->line('partial'); ?></span><?php
-                                                                                                                                                    } else {
-                                                                                                                                                        ?><span class="label label-danger"><?php echo $this->lang->line('unpaid'); ?></span><?php
-                                                                                                                                                    }
-                                                                                                                                                    ?>
+                                                                                                                                            } else if (!empty($fee_value->amount_detail)) {
+                                                                                                                                                ?><span class="label label-warning"><?php echo $this->lang->line('partial'); ?></span><?php
+                                                                                                                                                                                                                                    } else {
+                                                                                                                                                                                                                                        ?><span class="label label-danger"><?php echo $this->lang->line('unpaid'); ?></span><?php
+                                                                                                                                                                                                                                                                                                                        }
+                                                                                                                                                                                                                                                                                                                            ?>
 
                                                         </td>
                                                         <td class="text text-right"><?php echo $fee_value->amount;
