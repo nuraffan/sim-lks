@@ -97,6 +97,17 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
     .pull-right a {
         display: inline-table;
     }
+
+    span p {
+        display: inline-block;
+        margin: 0;
+    }
+
+    @media only screen and (max-width: 600px) {
+        span p {
+            display: none;
+        }
+    }
 </style>
 
 <div class="content-wrapper" style="min-height: 946px;">
@@ -116,12 +127,17 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                     <div class="nav-tabs-custom theme-shadow">
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true"><i class="fa fa-list"></i> <?php echo $this->lang->line('student_lists'); ?></a></li>
-                            <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false"><i class="fa fa-newspaper-o"></i> <?php echo $this->lang->line('detailed_view'); ?></a></li>
+                            <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false"><i class="fa fa-th"></i> <?php echo $this->lang->line('detailed_view'); ?></a></li>
+                            <li class=""><a href="<?php echo site_url('student/search') ?>"><i class="fa fa-filter"></i> Filter</a></li>
 
                         </ul>
                         <div class="pull-right box-tools impbtntitle">
                             <a href="<?php echo site_url('report/student_profile') ?>">
-                                <button class="btn btn-primary btn-sm"><i class="fa fa-file-excel-o"></i> Lihat Laporan</button>
+                                <button class="btn btn-primary btn-sm"><i class="fa fa-file-excel-o"></i>
+                                    <span>
+                                        <p>Lihat Laporan</p>
+                                    </span>
+                                </button>
                             </a>
                         </div>
                         <div class="tab-content">
@@ -240,7 +256,10 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                             <div class="tab-pane" id="tab_2">
                                 <div class="pull-right box-tools impbtntitle">
                                     <a href="<?php echo site_url('report/student_profile_print') ?>" onclick="window.open(this.href).print(); return false" role="button" class="btn btn-primary btn-sm checkbox-toggle edit_setting" data-toggle="tooltip" title="<?php echo $this->lang->line('Payslip View'); ?>">
-                                        <i class="fa fa-file-pdf-o"></i> Cetak Daftar Anak
+                                        <i class="fa fa-file-pdf-o"></i>
+                                        <span>
+                                            <p>Cetak Daftar Anak</p>
+                                        </span>
                                     </a>
                                 </div>
                                 <?php
