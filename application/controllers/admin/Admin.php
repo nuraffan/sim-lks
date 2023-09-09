@@ -618,7 +618,8 @@ class Admin extends Admin_Controller
 
     public function search()
     {
-
+        $this->session->set_userdata('top_menu', 'Student Information');
+        $this->session->set_userdata('sub_menu', 'admin/search');
         $data['title']           = 'Search';
         $search_text             = $this->input->post('search_text1');
         $data['sch_setting']     = $this->sch_setting_detail;

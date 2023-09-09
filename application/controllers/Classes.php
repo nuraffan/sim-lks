@@ -17,13 +17,16 @@ class Classes extends Admin_Controller
         if (!$this->rbac->hasPrivilege('class', 'can_view')) {
             access_denied();
         }
-        $this->session->set_userdata('top_menu', 'Academics');
+        // $this->session->set_userdata('top_menu', 'Academics');
+        $this->session->set_userdata('top_menu', 'Student Information');
         $this->session->set_userdata('sub_menu', 'classes/index');
         $data['title']      = 'Add Class';
         $data['title_list'] = 'Class List';
 
         $this->form_validation->set_rules(
-            'class', $this->lang->line('class'), array(
+            'class',
+            $this->lang->line('class'),
+            array(
                 'required',
                 array('class_exists', array($this->class_model, 'class_exists')),
             )
@@ -31,7 +34,6 @@ class Classes extends Admin_Controller
         $this->form_validation->set_rules('sections[]', $this->lang->line('section'), 'trim|required|xss_clean');
 
         if ($this->form_validation->run() == false) {
-
         } else {
             $class       = $this->input->post('class');
             $class_array = array(
@@ -75,7 +77,9 @@ class Classes extends Admin_Controller
         $data['title_list'] = 'Fees Master List';
 
         $this->form_validation->set_rules(
-            'class', $this->lang->line('class'), array(
+            'class',
+            $this->lang->line('class'),
+            array(
                 'required',
                 array('class_exists', array($this->class_model, 'class_exists')),
             )
@@ -139,5 +143,4 @@ class Classes extends Admin_Controller
         $data['sections'] = $this->class_model->get_section($id);
         $this->load->view('class/_section_list', $data);
     }
-
 }

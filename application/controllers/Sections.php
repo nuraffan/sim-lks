@@ -17,7 +17,8 @@ class Sections extends Admin_Controller
         if (!$this->rbac->hasPrivilege('section', 'can_view')) {
             access_denied();
         }
-        $this->session->set_userdata('top_menu', 'Academics');
+        // $this->session->set_userdata('top_menu', 'Academics');
+        $this->session->set_userdata('top_menu', 'Student Information');
         $this->session->set_userdata('sub_menu', 'sections/index');
         $data['title'] = 'Section List';
 
@@ -117,5 +118,4 @@ class Sections extends Admin_Controller
             redirect('sections/index');
         }
     }
-
 }
