@@ -17,7 +17,7 @@ class Classes extends Admin_Controller
         if (!$this->rbac->hasPrivilege('class', 'can_view')) {
             access_denied();
         }
-        // $this->session->set_userdata('top_menu', 'Academics');
+        $this->session->set_userdata('top_menu', 'Academics');
         $this->session->set_userdata('top_menu', 'Student Information');
         $this->session->set_userdata('sub_menu', 'classes/index');
         $data['title']      = 'Add Class';

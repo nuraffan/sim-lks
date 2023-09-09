@@ -240,7 +240,7 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                             <div class="tab-pane" id="tab_2">
                                 <div class="pull-right box-tools impbtntitle">
                                     <a href="<?php echo site_url('report/student_profile_print') ?>" onclick="window.open(this.href).print(); return false" role="button" class="btn btn-primary btn-sm checkbox-toggle edit_setting" data-toggle="tooltip" title="<?php echo $this->lang->line('Payslip View'); ?>">
-                                        <i class="fa fa-file-pdf-o"></i> Cetak File Daftar Anak
+                                        <i class="fa fa-file-pdf-o"></i> Cetak Daftar Anak
                                     </a>
                                 </div>
                                 <?php
