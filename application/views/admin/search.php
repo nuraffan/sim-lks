@@ -128,7 +128,7 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true"><i class="fa fa-list"></i> <?php echo $this->lang->line('student_lists'); ?></a></li>
                             <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false"><i class="fa fa-th"></i> <?php echo $this->lang->line('detailed_view'); ?></a></li>
-                            <li class=""><a href="<?php echo site_url('student/search') ?>"><i class="fa fa-filter"></i> Filter</a></li>
+                            <li class=""><a href="<?php echo site_url('student/search_print') ?>"><i class="fa fa-filter"></i> Filter</a></li>
 
                         </ul>
                         <div class="pull-right box-tools impbtntitle">

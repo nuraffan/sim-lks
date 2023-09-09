@@ -251,13 +251,7 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                         </table>
                                     </div>
                                     <div class="tab-pane" id="tab_2">
-                                        <div class="pull-right box-tools impbtntitle new">
-                                            <a href="<?php echo site_url('report/student_profile_print') ?>" onclick="window.open(this.href).print(); return false" role="button" class="btn btn-primary btn-sm checkbox-toggle edit_setting" data-toggle="tooltip" title="<?php echo $this->lang->line('Payslip View'); ?>">
-                                                <i class="fa fa-file-pdf-o"></i><span>
-                                                    <p>Cetak Daftar Anak</p>
-                                                </span>
-                                            </a>
-                                        </div>
+
                                         <?php if (empty($resultlist)) {
                                         ?>
                                             <div class="alert alert-info"><?php echo $this->lang->line('no_record_found'); ?></div>
@@ -276,6 +270,13 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                                     $image = $student['image'];
                                                 }
                                             ?>
+                                                <div class="pull-right box-tools impbtntitle new">
+                                                    <a href="<?php echo site_url('student/search_print') ?>" onclick="window.open(this.href).print(); return false" role="button" class="btn btn-primary btn-sm checkbox-toggle edit_setting" data-toggle="tooltip" title="<?php echo $this->lang->line('Payslip View'); ?>">
+                                                        <i class="fa fa-file-pdf-o"></i><span>
+                                                            <p>Cetak Daftar Anak</p>
+                                                        </span>
+                                                    </a>
+                                                </div>
                                                 <div class="carousel-row">
                                                     <div class="slide-row">
                                                         <div id="carousel-2" class="carousel slide slide-carousel" data-ride="carousel">

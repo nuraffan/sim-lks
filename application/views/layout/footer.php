@@ -1,6 +1,6 @@
 <!-- <script src="<?php //echo base_url(); 
                     ?>backend/dist/js/moment.min.js"></script> -->
-<footer class="main-footer">
+<footer class="main-footer no-print">
     &copy; <?php echo date('Y'); ?>
     <?php echo $this->customlib->getAppName(); ?>
 </footer>
