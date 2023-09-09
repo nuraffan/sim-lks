@@ -495,7 +495,7 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                 </tr>
                                 <tr>
                                     <td rowspan="9" class="td20 top"><?= $no ?>.</td>
-                                    <th>Nama</th>
+                                    <th>Nama Lengkap</th>
                                     <td>:</td>
                                     <td><?php echo $student['firstname'] ?></td>
                                 </tr>

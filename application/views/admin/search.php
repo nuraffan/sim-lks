@@ -42,12 +42,12 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
     .slide-content {
         position: absolute;
         top: 0;
-        left: 20%;
+        left: 15%;
         display: block;
         float: left;
-        width: 80%;
+        width: 85%;
         max-height: 100%;
-        padding: 1.5% 2% 2% 2%;
+        padding: 22px 10px;
         overflow-y: auto;
     }
 

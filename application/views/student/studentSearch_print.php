@@ -67,7 +67,20 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
     }
 
     .slide-content {
+        position: absolute;
+        top: 0;
+        left: 15%;
+        display: block;
+        float: left;
+        width: 85%;
         max-height: 100%;
+        padding: 22px 10px;
+        overflow-y: auto;
+    }
+
+    .slide-content h4 {
+        margin-bottom: 3px;
+        margin-top: 0;
     }
 
     .slide-footer {
@@ -232,35 +245,50 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                                             <div class="carousel-inner">
                                                                 <div class="item active">
                                                                     <a href="<?php echo base_url(); ?>student/view/<?php echo $student['id'] ?>">
-                                                                        <?php if ($sch_setting->student_photo) { ?><img class="img-responsive img-thumbnail width150" alt="<?php echo $student["firstname"] . " " . $student["lastname"] ?>" src="<?php echo base_url() . $image; ?>" alt="Image"><?php } ?></a>
+                                                                        <?php if ($sch_setting->student_photo) { ?>
+                                                                            <img class="img-responsive img-thumbnail width150" alt="<?php echo $student['firstname'] ?>" src="<?php echo base_url() . $image ?>" alt="Image"><?php } ?></a>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="slide-content">
-                                                            <h4><a href="<?php echo base_url(); ?>student/view/<?php echo $student['id'] ?>"> <?php echo $student['firstname']; ?></a></h4>
+                                                            <h4><a href="<?php echo base_url(); ?>student/view/<?php echo $student['id'] ?>">
+                                                                    <?php echo $student['firstname'] ?>
+                                                                    <!-- full name -->
+                                                                    <!-- <?php echo $this->customlib->getFullName($student['firstname'], $student['middlename'], $student['lastname'], $sch_setting->middlename, $sch_setting->lastname);  ?> -->
+                                                                    <!-- end full name -->
+                                                                </a></h4>
                                                             <div class="row">
-                                                                <div class="col-xs-6 col-md-6">
+                                                                <div class="col-xs-4 col-md-4">
                                                                     <address>
-                                                                        <strong><b><?php echo $this->lang->line('class'); ?>: </b><?php echo $student['class'] . "(" . $student['section'] . ")" ?></strong><br>
-                                                                        <b><?php echo $this->lang->line('admission_no'); ?>: </b><?php echo $student['admission_no'] ?><br />
-                                                                        <b><?php echo $this->lang->line('date_of_birth'); ?>:
-                                                                            <?php if ($student["dob"] != null && $student["dob"] != '0000-00-00') {
+                                                                        <strong><b><?php echo $this->lang->line('class'); ?>&emsp;&nbsp;&nbsp;&nbsp;: </b><?php echo $student['class'] . "(" . $student['section'] . ")" ?></strong><br>
+                                                                        <?php if (!$adm_auto_insert) { ?>
+                                                                            <b><?php echo $this->lang->line('admission_no'); ?>&emsp;:</b><?php echo $student['admission_no'] ?><br /><?php } ?>
+                                                                        <b><?php echo $this->lang->line('middle_name'); ?>&nbsp;&nbsp;&nbsp;&nbsp;: </b><?php echo $student['middlename'] ?><br>
+                                                                        <b><?php echo $this->lang->line('date_of_birth'); ?>
+                                                                            &nbsp;&nbsp;&nbsp;:
+                                                                        </b><?php
+                                                                            if ($student["dob"] != null && $student["dob"] != '0000-00-00') {
                                                                                 echo date($this->customlib->getSchoolDateFormat(), $this->customlib->dateyyyymmddTodateformat($student['dob']));
                                                                             } ?><br>
-                                                                            <b><?php echo $this->lang->line('gender'); ?>:&nbsp;</b><?php echo $student['gender'] ?><br>
+                                                                        <b><?php echo $this->lang->line('gender'); ?>&nbsp;&nbsp;: </b><?php echo $this->lang->line(strtolower($student['gender'])); ?><br>
                                                                     </address>
                                                                 </div>
-                                                                <div class="col-xs-6 col-md-6">
-                                                                    <b><?php echo $this->lang->line('local_identification_no'); ?>:&nbsp;</b><?php echo $student['samagra_id'] ?><br>
-                                                                    <?php if ($sch_setting->guardian_name) { ?>
-                                                                        <b><?php echo $this->lang->line('guardian_name'); ?>:&nbsp;</b><?php echo $student['guardian_name'] ?><br>
-                                                                    <?php }
-                                                                    if ($sch_setting->cast) { ?>
-                                                                        <b><?php echo $this->lang->line('cast'); ?>:&nbsp;</b><?php echo $student['cast'] ?><br>
+                                                                <div class="col-xs-8 col-md-8">
+                                                                    <?php if ($sch_setting->local_identification_no) { ?>
+                                                                        <b>
+                                                                            <?php echo $this->lang->line('category'); ?>&emsp;&emsp;&emsp;&emsp;&nbsp; : </b><?php echo $student['category'] ?>
+                                                                        <br>
                                                                     <?php }
                                                                     if ($sch_setting->guardian_name) { ?>
-                                                                        <b><?php echo $this->lang->line('guardian_phone'); ?>: </b> <abbr title="Phone"><i class="fa fa-phone-square"></i>&nbsp;</abbr> <?php echo $student['guardian_phone'] ?><br> <?php } ?>
-                                                                    <b><?php echo $this->lang->line('permanent_address'); ?>:&nbsp;</b><?php echo $student['permanent_address'] ?> <?php echo $student['city'] ?><br>
+                                                                        <b><?php echo $this->lang->line('guardian_name'); ?>&emsp;&emsp;&emsp;&emsp;&emsp; : </b><?php echo $student['guardian_name'] ?>
+                                                                        <br>
+                                                                    <?php }
+                                                                    if ($sch_setting->cast) { ?>
+                                                                        <b><?php echo $this->lang->line('cast'); ?>&emsp; : </b> <?php echo $student['cast']; ?>
+                                                                        <br>
+                                                                    <?php }
+                                                                    if ($sch_setting->current_address) { ?>
+                                                                        <b>Alamat Asal &emsp;&emsp;&emsp;&emsp; : </b><?php echo $student['permanent_address'] ?>, <?php echo $student['city'] ?><br><?php } ?>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -269,14 +297,12 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                                                 <a href="<?php echo base_url(); ?>student/view/<?php echo $student['id'] ?>" class="btn btn-default btn-xs" data-toggle="tooltip" title="<?php echo $this->lang->line('show'); ?>">
                                                                     <i class="fa fa-reorder"></i>
                                                                 </a>
-                                                                <?php
-                                                                if ($this->rbac->hasPrivilege('student', 'can_edit')) {
+                                                                <?php if ($this->rbac->hasPrivilege('student', 'can_edit')) {
                                                                 ?>
                                                                     <a href="<?php echo base_url(); ?>student/edit/<?php echo $student['id'] ?>" class="btn btn-default btn-xs" data-toggle="tooltip" title="<?php echo $this->lang->line('edit'); ?>">
                                                                         <i class="fa fa-pencil"></i>
                                                                     </a>
-                                                                <?php
-                                                                }
+                                                                <?php }
                                                                 if ($this->rbac->hasPrivilege('collect_fees', 'can_add')) {
                                                                 ?>
                                                                     <a href="<?php echo base_url(); ?>studentfee/addfee/<?php echo $student['id'] ?>" class="btn btn-default btn-xs" data-toggle="tooltip" title="" data-original-title="<?php echo $this->lang->line('add_fees'); ?>">
@@ -353,7 +379,7 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                             </tr>
                                             <tr>
                                                 <td rowspan="9" class="td20 top"><?= $no ?>.</td>
-                                                <th>Nama</th>
+                                                <th>Nama Lengkap</th>
                                                 <td class="td10">:</td>
                                                 <td><?php echo $student['firstname'] ?></td>
                                             </tr>
@@ -371,8 +397,8 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                                     } ?></td>
                                             </tr>
                                             <tr>
-                                                <th>Alamat Asal</th>
-                                                <td class="td10">:</td>
+                                                <th class="top">Alamat Asal</th>
+                                                <td class="td10 top">:</td>
                                                 <td><?php echo $student['permanent_address'] ?></td>
                                             </tr>
                                             <tr>
