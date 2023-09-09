@@ -44,12 +44,12 @@
                 <div><img src="<?php echo base_url() ?>/uploads/print_headerfooter/staff_payslip/<?php $this->setting_model->get_payslipheader(); ?>" style="height: 100px;width: 100%;" /></div>
                 <div class="col-md-3">
 
-                    <div class="box box-primary" <?php
-                                                    if ($student["is_active"] == "no") {
-                                                        echo "style='background-color:#f0dddd;'";
-                                                    }
-                                                    ?>>
-                        <div class="box-body box-profile">
+                    <div class="box" style="margin-bottom: 0;" <?php
+                                                                if ($student["is_active"] == "no") {
+                                                                    echo "style='background-color:#f0dddd;'";
+                                                                }
+                                                                ?>>
+                        <div class="box-body box-profile theme-shadow">
                             <?php if ($sch_setting->student_photo) { ?>
                                 <img class="profile-user-img img-responsive img-circle" src="<?php
                                                                                                 if (!empty($student["image"])) {

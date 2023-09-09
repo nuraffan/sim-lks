@@ -298,7 +298,7 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                 </li>
                             <?php
                             }
-                            if ($this->rbac->hasPrivilege('student', 'can_print')) {
+                            if ($this->rbac->hasPrivilege('student', 'can_view')) {
                             ?>
 
                                 <li class="pull-right">

@@ -207,7 +207,7 @@ class Student extends Admin_Controller
     public function print($id)
     {
 
-        if (!$this->rbac->hasPrivilege('student', 'can_print')) {
+        if (!$this->rbac->hasPrivilege('student', 'can_view')) {
             access_denied();
         }
 
