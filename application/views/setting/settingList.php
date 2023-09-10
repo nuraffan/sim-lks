@@ -107,10 +107,10 @@
 
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group row">
-                                            <label class="col-sm-4"><?php echo $this->lang->line('school_name'); ?><small class="req"> *</small></label>
-                                            <div class="col-sm-8">
+                                            <label class="col-sm-2"><?php echo $this->lang->line('school_name'); ?><small class="req"> *</small></label>
+                                            <div class="col-sm-10">
                                                 <input type="text" class="form-control" id="name" name="sch_name" value="<?php echo $result->name; ?>">
                                                 <span class="text-danger"><?php echo form_error('name'); ?></span> <input type="hidden" name="sch_id" value="<?php echo $result->id; ?>">
                                             </div>
@@ -180,7 +180,7 @@
 
                                     <div class="col-md-12">
                                         <div class="settinghr"></div>
-                                        <h4 class="session-head"><?php echo $this->lang->line('academic') . " " . $this->lang->line('session'); ?></h4>
+                                        <h4 class="session-head">Periode Tahun</h4>
                                     </div><!--./col-md-12-->
                                     <div class="col-md-6">
                                         <div class="form-group row">
@@ -292,7 +292,7 @@
                                 </div><!--./row-->
 
 
-                                <div class="row">
+                                <div class="row hidden">
                                     <div class="col-md-12">
                                         <div class="settinghr"></div>
                                         <h4 class="session-head"><?php echo $this->lang->line('language'); ?></h4>
@@ -348,11 +348,11 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="settinghr"></div>
-                                        <h4 class="session-head"><?php echo $this->lang->line('date') . " " . $this->lang->line('time'); ?></h4>
+                                        <h4 class="session-head">Pengaturan Tanggal & Waktu</h4>
                                     </div><!--./col-md-12-->
 
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-sm-4"><?php echo $this->lang->line('date_format'); ?><small class="req"> *</small></label>
                                             <div class="col-sm-8">
@@ -371,7 +371,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-sm-4"><?php echo $this->lang->line('timezone'); ?><small class="req"> *</small></label>
                                             <div class="col-sm-8">
@@ -390,7 +390,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group row">
                                             <label class="col-sm-4"><?php echo $this->lang->line('start_day_of_week') ?><small class="req"> *</small></label>
                                             <div class="col-sm-8">
@@ -410,7 +410,7 @@
                                         </div>
                                     </div>
                                 </div><!--./row-->
-                                <div class="row">
+                                <div class="row hidden">
                                     <div class="col-md-12">
                                         <div class="settinghr"></div>
                                         <h4 class="session-head"><?php echo $this->lang->line('currency') ?></h4>
@@ -473,7 +473,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-sm-4"><?php echo $this->lang->line('auto') . " " . $this->lang->line('admission') . " " . $this->lang->line('no'); ?></label>
+                                            <label class="col-sm-4">ID Anak Otomatis</label>
                                             <div class="col-sm-8">
                                                 <label class="radio-inline">
                                                     <input type="radio" name="adm_auto_insert" value="0" <?php
@@ -494,7 +494,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-sm-4"><?php echo $this->lang->line('admission_no_prefix'); ?><small class="req"> *</small></label>
+                                            <label class="col-sm-4">Awalan ID Anak<small class="req"> *</small></label>
                                             <div class="col-sm-8">
                                                 <input type="text" name="adm_prefix" id="adm_prefix" class="form-control" value="<?php echo $result->adm_prefix; ?>">
                                                 <span class="text-danger"><?php echo form_error('adm_prefix'); ?></span>
@@ -523,7 +523,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-sm-4"><?php echo $this->lang->line('admission') . " " . $this->lang->line('start') . " " . $this->lang->line('from') ?><small class="req"> *</small></label>
+                                            <label class="col-sm-4">ID Mulai Dari<small class="req"> *</small></label>
                                             <div class="col-sm-8">
                                                 <input type="text" name="adm_start_from" id="adm_start_from" class="form-control" value="<?php echo $result->adm_start_from; ?>">
                                                 <span class="text-danger"><?php echo form_error('adm_start_from'); ?></span>
@@ -592,7 +592,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group row">
-                                            <label class="col-sm-4"><?php echo $this->lang->line('staff_id_start_from') ?><small class="req"> *</small></label>
+                                            <label class="col-sm-4">ID Mulai Dari<small class="req"> *</small></label>
                                             <div class="col-sm-8">
 
                                                 <input id="staffid_start_from" value="<?php echo $result->staffid_start_from; ?>" name="staffid_start_from" placeholder="" type="text" class="form-control" />

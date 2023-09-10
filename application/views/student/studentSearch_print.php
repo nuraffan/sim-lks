@@ -343,15 +343,14 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
             </div>
         </div>
 
-        <div class="row print">
+        <div class="row">
 
-            <div class="col-md-12" style="display: flex;text-align: center;">
-                <div class="col-md-4">
-                    <img src="<?php echo base_url() ?>uploads/school_content/logo/<?php $this->setting_model->get_logo(); ?>" class="img" alt="Logo Lembaga" width="200">
-                </div>
-                <div class="col-md-8">
-                    <h2 class="font bfont" style="margin: 0 10px;font-size: 16px;"><?php echo $this->setting_model->getCurrentSchoolName(); ?></h2>
-                    <p style="margin: 0 10px;" class="font">
+            <div class="col-md-12" style="display: flex;text-align: center;margin-bottom: 2em;">
+
+                <img src="<?php echo base_url() ?>uploads/school_content/logo/<?php $this->setting_model->get_logo(); ?>" class="" alt="Logo Lembaga" width="200">
+                <div class="row">
+                    <h2 class="font bfont" style="margin: 0 10px;font-size: 24px;"><?php echo $this->setting_model->getCurrentSchoolName(); ?></h2>
+                    <p style="margin: -5px 10px;font-size: 16px;" class="font">
                         <?php echo $this->setting_model->getCurrentSchoolAddress(); ?>
                         <span> Email : </span>
                         <?php echo $this->setting_model->getCurrentSchoolEmail(); ?>
@@ -370,8 +369,8 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                     </tr>
                     <tr> -->
                     <td align="center">
-                        <h3 style="margin: 10px 0 20px;font-size: 1.17em;" class="font bfont">BIODATA ANAK ASUH</h3>
-                        <h5 style="margin: 10px 0 20px;font-size: 12px;" class="font bfont"><?php echo $this->setting_model->getCurrentSchoolName(); ?></h5>
+                        <h3 style="margin: 10px 0 20px;font-size: 19px;" class="font bfont">BIODATA ANAK ASUH</h3>
+                        <h5 style="margin: 10px 0 20px;font-size: 13px;" class="font bfont"><?php echo $this->setting_model->getCurrentSchoolName(); ?></h5>
                     </td>
                     </tr>
                 </table>
