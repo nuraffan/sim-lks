@@ -198,6 +198,16 @@ class Setting_model extends MY_Model
         $session_result = $this->get();
         return $session_result[0]['name'];
     }
+    public function getCurrentSchoolAddress()
+    {
+        $session_result = $this->get();
+        return $session_result[0]['address'];
+    }
+    public function getCurrentSchoolEmail()
+    {
+        $session_result = $this->get();
+        return $session_result[0]['email'];
+    }
 
     public function getStartMonth()
     {
@@ -343,5 +353,10 @@ class Setting_model extends MY_Model
     {
         $ketua = $this->db->select('ketua')->from('sch_settings')->where('id', '1')->get()->row_array();
         echo $ketua['ketua'];
+    }
+    public function get_logo()
+    {
+        $image = $this->db->select('image')->from('sch_settings')->where('id', '1')->get()->row_array();
+        echo $image['image'];
     }
 }

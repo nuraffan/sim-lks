@@ -300,6 +300,20 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
             vertical-align: text-top;
             position: relative;
         }
+
+        hr {
+            border-width: 2px;
+            border-color: black;
+            border-style: solid;
+            display: block;
+            unicode-bidi: isolate;
+            margin-block-start: 0.5em;
+            margin-block-end: 0.5em;
+            margin-inline-start: auto;
+            margin-inline-end: auto;
+            overflow: hidden;
+
+        }
     }
 </style>
 <html lang="en">
@@ -453,17 +467,39 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
             </div> -->
 
                 <div class="">
+                    <div class="row">
+                        <div class="col-md-12" style="display: flex;text-align: center;">
+                            <div class="col-md-4">
+                                <div>
+                                    <img src="<?php echo base_url() ?>uploads/school_content/logo/<?php $this->setting_model->get_logo(); ?>" class="img-thumbnail" alt="Logo Lembaga" width="200">
+
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div>
+                                    <h2 style="margin: 0 10px"><?php echo $this->setting_model->getCurrentSchoolName(); ?></h2>
+                                    <p style="margin: 0 10px">
+                                        <?php echo $this->setting_model->getCurrentSchoolAddress(); ?>
+                                        <span> Email : </span>
+                                        <?php echo $this->setting_model->getCurrentSchoolEmail(); ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="border">
                     <table width="100%">
-                        <tr>
+                        <!-- <tr>
                             <td style="height: 100px;width: 850px;">
                                 <div><img src="<?php echo base_url() ?>/uploads/print_headerfooter/staff_payslip/<?php $this->setting_model->get_payslipheader(); ?>" style="height: 100px;width: 100%;" /></div>
-                                <hr>
+                                <hr class="border">
                             </td>
-                        </tr>
+                        </tr> -->
+
                         <tr>
                             <td align="center">
                                 <h3 style="margin: 10px 0 20px;">BIODATA ANAK ASUH</h3>
-                                <h4 style="margin: 10px 0 20px;"><?php echo $this->setting_model->getCurrentSchoolName(); ?></h4>
+                                <h5 style="margin: 10px 0 20px;"><?php echo $this->setting_model->getCurrentSchoolName(); ?></h5>
                             </td>
                         </tr>
                     </table>

@@ -191,5 +191,3 @@ class Alumni_model extends MY_Model {
     }
 
 }
-
-?>

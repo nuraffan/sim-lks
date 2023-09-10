@@ -113,6 +113,20 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
             right: 1.2em;
         }
     }
+
+    hr {
+        border-width: 2px;
+        border-color: black;
+        border-style: solid;
+        display: block;
+        unicode-bidi: isolate;
+        margin-block-start: 0.5em;
+        margin-block-end: 0.5em;
+        margin-inline-start: auto;
+        margin-inline-end: auto;
+        overflow: hidden;
+
+    }
 </style>
 
 <div class="content-wrapper">
@@ -330,19 +344,35 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
         </div>
 
         <div class="row print">
+
+            <div class="col-md-12" style="display: flex;text-align: center;">
+                <div class="col-md-4">
+                    <img src="<?php echo base_url() ?>uploads/school_content/logo/<?php $this->setting_model->get_logo(); ?>" class="img" alt="Logo Lembaga" width="200">
+                </div>
+                <div class="col-md-8">
+                    <h2 class="font bfont" style="margin: 0 10px;font-size: 16px;"><?php echo $this->setting_model->getCurrentSchoolName(); ?></h2>
+                    <p style="margin: 0 10px;" class="font">
+                        <?php echo $this->setting_model->getCurrentSchoolAddress(); ?>
+                        <span> Email : </span>
+                        <?php echo $this->setting_model->getCurrentSchoolEmail(); ?>
+                    </p>
+                </div>
+            </div>
+
+            <hr class="border">
             <div class="col-md-12">
                 <table width="100%">
-                    <tr>
+                    <!-- <tr>
                         <td style="height: 100px;width: 850px;">
                             <div><img src="<?php echo base_url() ?>/uploads/print_headerfooter/staff_payslip/<?php $this->setting_model->get_payslipheader(); ?>" style="height: 100px;width: 100%;" /></div>
                             <hr>
                         </td>
                     </tr>
-                    <tr>
-                        <td align="center">
-                            <h3 style="margin: 10px 0 20px;font-size: 1.17em;" class="font bfont">BIODATA ANAK ASUH</h3>
-                            <h4 style="margin: 10px 0 20px;font-size: 1.17em;" class="font bfont"><?php echo $this->setting_model->getCurrentSchoolName(); ?></h4>
-                        </td>
+                    <tr> -->
+                    <td align="center">
+                        <h3 style="margin: 10px 0 20px;font-size: 1.17em;" class="font bfont">BIODATA ANAK ASUH</h3>
+                        <h5 style="margin: 10px 0 20px;font-size: 12px;" class="font bfont"><?php echo $this->setting_model->getCurrentSchoolName(); ?></h5>
+                    </td>
                     </tr>
                 </table>
 
